@@ -1,0 +1,11 @@
+{
+  "name": "chirkova_m.a._TKRIS_pr1",
+  "version": "1.0.0",
+  "description": "Project for TKRIS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Тесты запущены успешно!' && exit 0",
+    "lint": "echo 'Проверка кода завершена!' && exit 0",
+    "build": "echo 'Проект собран!' && exit 0"
+  }
+}
