@@ -11,9 +11,3 @@ Using npm:
 ```sh
 npm install --save @babel/helper-compilation-targets
 ```
-
-or using yarn:
-
-```sh
-yarn add @babel/helper-compilation-targets
-```
