@@ -1,12 +1,19 @@
-name: Required Check
-
-on:
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  required-check:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Always pass check
-      run: echo "This check always passes"
+- name: Commit Documentation Changes
+      run: |
+        echo "=== ФИКСАЦИЯ ИЗМЕНЕНИЙ В ДОКУМЕНТАЦИИ ==="
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Принудительно обновляемся до последней версии main
+        git fetch origin
+        git reset --hard origin/main
+        
+        # Записываем изменения в документацию
+        current_time=$(date '+%Y-%m-%d %H:%M:%S UTC')
+        echo "Это документация. Последнее изменение было: $current_time" > DOCUMENTATION.md
+        
+        # Коммитим и пушим с принудительной перезаписью
+        git add DOCUMENTATION.md
+        git commit -m "Автоматическое обновление документации: $(date '+%Y-%m-%d %H:%M:%S')"
+        git push --force-with-lease
+        echo "Изменения в документации зафиксированы и отправлены"
